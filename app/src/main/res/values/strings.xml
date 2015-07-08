@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="jungle_button_text">Jungle</string>
+    <string name="support_button_text">Supp</string>
+    <string name="top_button_text">Top</string>
+    <string name="mid_button_text">Mid</string>
+    <string name="adc_button_text">adc</string>
+    <string name="title_activity_display_screen">DisplayScreen</string>
 </resources>

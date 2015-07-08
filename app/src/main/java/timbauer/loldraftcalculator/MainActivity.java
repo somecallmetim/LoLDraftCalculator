@@ -1,14 +1,11 @@
 package timbauer.loldraftcalculator;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.GridView;
-import android.widget.Toast;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -17,16 +14,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
 
-        gridview.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 
@@ -50,5 +38,60 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void getTopLaners(View view) {
+        Intent getDisplayScreenIntent = new Intent(this, DisplayScreen.class);
+
+        final int result = 1;
+
+        int laneId = 1;
+
+        getDisplayScreenIntent.putExtra("laneId", laneId);
+        startActivity(getDisplayScreenIntent);
+    }
+
+    public void getMidLaners(View view) {
+        Intent getDisplayScreenIntent = new Intent(this, DisplayScreen.class);
+
+        final int result = 1;
+
+        int laneId = 2;
+
+        getDisplayScreenIntent.putExtra("laneId", laneId);
+        startActivity(getDisplayScreenIntent);
+    }
+
+    public void getJunglers(View view) {
+        Intent getDisplayScreenIntent = new Intent(this, DisplayScreen.class);
+
+        final int result = 1;
+
+        int laneId = 3;
+
+        getDisplayScreenIntent.putExtra("laneId", laneId);
+        startActivity(getDisplayScreenIntent);
+    }
+
+    public void getAdCarries(View view) {
+        Intent getDisplayScreenIntent = new Intent(this, DisplayScreen.class);
+
+        final int result = 1;
+        int laneId = 4;
+
+        getDisplayScreenIntent.putExtra("laneId", laneId);
+        startActivity(getDisplayScreenIntent);
+    }
+
+
+    public void getSupports(View view) {
+        Intent getDisplayScreenIntent = new Intent(this, DisplayScreen.class);
+
+        final int result = 1;
+
+        int laneId = 5;
+
+        getDisplayScreenIntent.putExtra("laneId", laneId);
+        startActivity(getDisplayScreenIntent);
     }
 }
