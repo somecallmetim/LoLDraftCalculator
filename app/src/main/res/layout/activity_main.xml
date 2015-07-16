@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/top_button_text"
+            android:id="@+id/top_button"
+            android:onClick="getTopLaners"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mid_button_text"
+            android:id="@+id/mid_button"
+            android:onClick="getMidLaners"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/jungle_button_text"
+            android:id="@+id/jungle_button"
+            android:onClick="getJunglers"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/adc_button_text"
+            android:id="@+id/adc_button"
+            android:onClick="getAdCarries"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/support_button_text"
+            android:id="@+id/support_button"
+            android:onClick="getSupports"/>
+    </LinearLayout>
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/top_button_text"
-        android:id="@+id/top_button"
-        android:onClick="getTopLaners"/>
+        android:text="@string/build_database_main_activity_button"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/build_database"
+        android:onClick="buildDatabase"/>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text="@string/mid_button_text"
-        android:id="@+id/mid_button"
-        android:onClick="getMidLaners"/>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text="@string/jungle_button_text"
-        android:id="@+id/jungle_button"
-        android:onClick="getJunglers"/>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text="@string/adc_button_text"
-        android:id="@+id/adc_button"
-        android:onClick="getAdCarries"/>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text="@string/support_button_text"
-        android:id="@+id/support_button"
-        android:onClick="getSupports"/>
-
-</LinearLayout>
+</RelativeLayout>
 

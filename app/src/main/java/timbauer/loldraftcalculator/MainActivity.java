@@ -13,8 +13,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
 
@@ -93,5 +91,10 @@ public class MainActivity extends ActionBarActivity {
 
         getDisplayScreenIntent.putExtra("laneId", laneId);
         startActivity(getDisplayScreenIntent);
+    }
+
+    public void buildDatabase(View view) {
+        Intent buildDatabase = new Intent(this, BuildDatabaseScreen.class);
+        startActivity(buildDatabase);
     }
 }

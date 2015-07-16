@@ -20,6 +20,10 @@
             android:name=".DisplayScreen"
             android:label="@string/title_activity_display_screen" >
         </activity>
+        <activity
+            android:name=".BuildDatabaseScreen"
+            android:label="@string/title_activity_build__database" >
+        </activity>
     </application>
 
 </manifest>

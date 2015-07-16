@@ -8,5 +8,46 @@
     <string name="top_button_text">Top</string>
     <string name="mid_button_text">Mid</string>
     <string name="adc_button_text">adc</string>
+
     <string name="title_activity_display_screen">DisplayScreen</string>
+    
+    
+    <string name="title_activity_build__database">Build_Database</string>
+    <string name="build_database_main_activity_button">Build Database</string>
+    <string name="primary_role">Primary Role</string>
+    <string name="champion_role_lable_for_spinner_in_database_builder">Champion Role</string>
+    <string name="build_database_champ_primary_posit">Primary Position</string>
+    <string name="build_database_champ_name">Champ Name</string>
+    <string name="build_database_secondary_position">Secondary Position</string>
+    <string name="build_database_primary_role">Primary Role</string>
+    <string name="build_database_secondary_role">Secondary Role</string>
+    <string name="build_database_next_champ_button">Next</string>
+    <string name="build_database_previous_champ_button">Prev</string>
+    <string name="build_database_done_button">Done</string>
+    <string name="build_database_primary_dmg_type">Primary Dmg Type</string>
+    <string-array name="champion_positions">
+        <item></item>
+        <item>Top</item>
+        <item>Mid</item>
+        <item>Jungle</item>
+        <item>Ad Carry</item>
+        <item>Support</item>
+    </string-array>
+    <string-array name="champion_roles">
+        <item></item>
+        <item>Assasin</item>
+        <item>Fighter</item>
+        <item>Mage</item>
+        <item>Support</item>
+        <item>Tank</item>
+        <item>Marksman</item>
+    </string-array>
+    <string-array name="champion_dmg_type">
+        <item></item>
+        <item>AP</item>
+        <item>AD</item>
+        <item>Both</item>
+    </string-array>
+    
+    
 </resources>

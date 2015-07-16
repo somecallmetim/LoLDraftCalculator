@@ -7,14 +7,52 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 /**
  * Created by timbauer on 6/24/15.
  */
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    //the below allow me to dynamically build a custom array at runtime (there's probably a cleaner way to do this)
+    private ArrayList<Integer> champList= new ArrayList<>(125);
+    private Integer[] mThumbIds;
+
+    public ImageAdapter(Context c, int laneId) {
         mContext = c;
+        //add elements to champList based on position
+        switch (laneId){
+            //add top laners to champList
+            case 1:
+                champList.add(R.drawable.aatrox_square_0);
+                break;
+            //add mid laners to champList
+            case 2:
+                champList.add(R.drawable.ziggs_square_0);
+                break;
+            //add junglers to champList
+            case 3:
+                champList.add(R.drawable.reksai_square_0);
+                break;
+            //add adc's to champList
+            case 4:
+                champList.add(R.drawable.jinx_square_0);
+                break;
+            //add supports to champList
+            case 5:
+                champList.add(R.drawable.janna_square_0);
+                break;
+            default:
+                break;
+        }
+
+
+        //dynamically build an array based on the number of elements in champList
+        Integer[] temp = new Integer[champList.size()];
+        temp = champList.toArray(temp);
+        //assign mThumbIds the array we just built so that the rest of the framework has access
+        mThumbIds = temp;
     }
 
     public int getCount() {
@@ -47,7 +85,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     // references to our images
-    private Integer[] mThumbIds = {
+    private Integer[] champs = {
             R.drawable.aatrox_square_0,
             R.drawable.akali_square_0,
             R.drawable.alistar_square_0,
@@ -170,5 +208,6 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.ziggs_square_0,
             R.drawable.zilean_square_0,
             R.drawable.zyra_square_0
+
     };
 }

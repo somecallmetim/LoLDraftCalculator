@@ -13,11 +13,6 @@ import android.widget.Toast;
 
 public class DisplayScreen extends ActionBarActivity {
 
-    private static int laneId;
-
-    public static void setLaneId(int laneId) {
-        DisplayScreen.laneId = laneId;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +20,10 @@ public class DisplayScreen extends ActionBarActivity {
         setContentView(R.layout.activity_display_screen);
 
         Intent getLaneId = getIntent();
-
-
-        setLaneId(getLaneId.getExtras().getInt("laneId"));
+        int laneId = getLaneId.getExtras().getInt("laneId");
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
+        gridview.setAdapter(new ImageAdapter(this, laneId));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -63,7 +56,4 @@ public class DisplayScreen extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static int getLaneId() {
-        return laneId;
-    }
 }
