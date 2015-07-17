@@ -1,6 +1,8 @@
 package timbauer.loldraftcalculator;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,6 +10,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by timbauer on 6/24/15.
@@ -18,41 +21,77 @@ public class ImageAdapter extends BaseAdapter {
     //the below allow me to dynamically build a custom array at runtime (there's probably a cleaner way to do this)
     private ArrayList<Integer> champList= new ArrayList<>(125);
     private Integer[] mThumbIds;
+    private ChampDatabase champDatabase;
+    private SQLiteDatabase champDB;
+    private static HashMap champDict;
+    private static int champColumn;
 
     public ImageAdapter(Context c, int laneId) {
         mContext = c;
+
+        champDatabase = ChampDatabase.getChampDatabase(mContext);
+        champDB = champDatabase.getReadableDatabase();
+        String lane;
+
+        champDict = buildChampMap(champs, champImages);
+
+
+        Cursor champCursor;
         //add elements to champList based on position
         switch (laneId){
             //add top laners to champList
             case 1:
-                champList.add(R.drawable.aatrox_square_0);
+                lane = "Top";
                 break;
             //add mid laners to champList
             case 2:
-                champList.add(R.drawable.ziggs_square_0);
+                lane = "Mid";
                 break;
             //add junglers to champList
             case 3:
-                champList.add(R.drawable.reksai_square_0);
+                lane = "Jungle";
                 break;
             //add adc's to champList
             case 4:
-                champList.add(R.drawable.jinx_square_0);
+                lane = "Ad Carry";
                 break;
             //add supports to champList
             case 5:
-                champList.add(R.drawable.janna_square_0);
+                lane = "Support";
                 break;
             default:
+                lane = "*";
                 break;
         }
 
+        Cursor allChamps = champDB.rawQuery("SELECT * FROM " + ChampDatabase.tableName, null);
+        champColumn = allChamps.getColumnIndex(ChampDatabase.champName);
+
+        champCursor = laneQuery(lane);
+        champCursor.moveToFirst();
+
+        if(champCursor != null && champCursor.getCount() > 0){
+            do{
+                String champName = champCursor.getString(champColumn);
+                Integer champImage = (Integer)champDict.get(champName);
+                champList.add(champImage);
+            }while(champCursor.moveToNext());
+        }
 
         //dynamically build an array based on the number of elements in champList
         Integer[] temp = new Integer[champList.size()];
         temp = champList.toArray(temp);
         //assign mThumbIds the array we just built so that the rest of the framework has access
         mThumbIds = temp;
+    }
+
+    private Cursor laneQuery(String lane){
+        Cursor champName = champDB.query(ChampDatabase.tableName,
+                new String[] {ChampDatabase.champName, ChampDatabase.primaryPosit},
+                ChampDatabase.primaryPosit + " = ?",
+                new String[] {lane},
+                null, null, null);
+        return champName;
     }
 
     public int getCount() {
@@ -84,8 +123,17 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
+
+    private HashMap buildChampMap(String[] champs, Integer[] champImages){
+        HashMap champDict = new HashMap(champs.length);
+        for(int i = 0; i < champs.length; i++){
+            champDict.put(champs[i], champImages[i]);
+        }
+        return champDict;
+    }
+
     // references to our images
-    private Integer[] champs = {
+    private Integer[] champImages = {
             R.drawable.aatrox_square_0,
             R.drawable.akali_square_0,
             R.drawable.alistar_square_0,
@@ -209,5 +257,131 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.zilean_square_0,
             R.drawable.zyra_square_0
 
+    };
+
+
+    private final static String[] champs = {
+            "Aatrox",
+            "Akali",
+            "Alistar",
+            "Amumu",
+            "Anivia",
+            "Annie",
+            "Ashe",
+            "Azir",
+            "Bard",
+            "Blitzcrank",
+            "Brand",
+            "Braum",
+            "Caitlyn",
+            "Cassiopeia",
+            "Chogath",
+            "Corki",
+            "Darius",
+            "Diana",
+            "Draven",
+            "Drmundo",
+            "Elise",
+            "Evelynn",
+            "Ezreal",
+            "Fiddlesticks",
+            "Fiora",
+            "Fizz",
+            "Galio",
+            "Gangplank",
+            "Garen",
+            "Gragas",
+            "Graves",
+            "Hecarim",
+            "Heimerdinger",
+            "Irelia",
+            "Janna",
+            "Jarvaniv",
+            "Jax",
+            "Jayce",
+            "Jinx",
+            "Kalista",
+            "Karma",
+            "Karthus",
+            "Kassadin",
+            "Katarina",
+            "Kayle",
+            "Kennen",
+            "Khazix",
+            "Kogmaw",
+            "Leblanc",
+            "Leesin",
+            "Leona",
+            "Lissandra",
+            "Lucian",
+            "Lulu",
+            "Lux",
+            "Malphite",
+            "Malzahar",
+            "Maokai",
+            "Masteryi",
+            "Missfortune",
+            "Monkeyking",
+            "Mordekaiser",
+            "Morgana",
+            "Nami",
+            "Nasus",
+            "Nautilus",
+            "Nidalee",
+            "Nocturne",
+            "Nunu",
+            "Olaf",
+            "Orianna",
+            "Pantheon",
+            "Poppy",
+            "Quinn",
+            "Rammus",
+            "Reksai",
+            "Renekton",
+            "Rengar",
+            "Riven",
+            "Rumble",
+            "Ryze",
+            "Sejuani",
+            "Shaco",
+            "Shen",
+            "Shyvana",
+            "Singed",
+            "Sion",
+            "Sivir",
+            "Skarner",
+            "Sona",
+            "Soraka",
+            "Swain",
+            "Syndra",
+            "Talon",
+            "Taric",
+            "Teemo",
+            "Thresh",
+            "Tristana",
+            "Trundle",
+            "Tryndamere",
+            "Twistedfate",
+            "Twitch",
+            "Udyr",
+            "Urgot",
+            "Varus",
+            "Vayne",
+            "Veigar",
+            "Velkoz",
+            "Vi",
+            "Viktor",
+            "Vladimir",
+            "Volibear",
+            "Warwick",
+            "Xerath",
+            "Xinzhao",
+            "Yasuo",
+            "Yorick",
+            "Zac",
+            "Zed",
+            "Ziggs",
+            "Zilean",
+            "Zyra"
     };
 }

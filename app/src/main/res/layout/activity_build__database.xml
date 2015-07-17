@@ -51,7 +51,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:entries="@array/wave_clear_strength"
+            android:entries="@array/champ_tier"
             android:id="@+id/editChampTier"/>
     </LinearLayout>
 

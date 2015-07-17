@@ -50,6 +50,13 @@
         <item>AD</item>
         <item>Both</item>
     </string-array>
+    <string-array name="champ_tier">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
     <string-array name="wave_clear_strength">
         <item>non-existant</item>
         <item>poor</item>

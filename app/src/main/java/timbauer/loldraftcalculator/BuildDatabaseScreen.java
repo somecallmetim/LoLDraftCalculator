@@ -20,8 +20,8 @@ public class BuildDatabaseScreen extends ActionBarActivity {
     private Button nextChamp,  prevChamp, done;
     private Spinner champTier, primaryPosit, secondaryPosit, secondaryPosit2,
         primaryRole, secondaryRole, primaryDmgType, waveClearStrength;
-    ChampDatabase champDatabase;
-    SQLiteDatabase champDB;
+    private ChampDatabase champDatabase;
+    private SQLiteDatabase champDB;
 
 
     @Override
@@ -83,7 +83,7 @@ public class BuildDatabaseScreen extends ActionBarActivity {
         champData.put(ChampDatabase.primaryDmgType, primaryDmgType.getSelectedItem().toString());
         champData.put(ChampDatabase.waveClear, waveClearStrength.getSelectedItem().toString());
 
-        champDB.insert(champDatabase.tableName, null, champData);
+        champDB.insert(ChampDatabase.tableName, null, champData);
     }
 
     public void getNextChamp(View view) {
