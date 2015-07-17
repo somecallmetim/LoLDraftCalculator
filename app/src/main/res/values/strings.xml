@@ -36,7 +36,7 @@
     </string-array>
     <string-array name="champion_roles">
         <item></item>
-        <item>Assasin</item>
+        <item>Assassin</item>
         <item>Fighter</item>
         <item>Mage</item>
         <item>Support</item>
