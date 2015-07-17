@@ -119,9 +119,33 @@ public class BuildDatabaseScreen extends ActionBarActivity {
     public void exitToHomeScreen(View view) {
 
         persistData();
+        champDB.close();
         finish();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        champDB.close();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        champDB.close();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        champDB.close();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        champDB = champDatabase.getWritableDatabase();
+    }
 
     private final static String[] champs = {
             "Aatrox",
