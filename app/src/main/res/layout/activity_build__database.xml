@@ -10,6 +10,8 @@
     tools:context="timbauer.loldraftcalculator.BuildDatabaseScreen">
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -30,11 +32,38 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/primaryPosit"
-        android:layout_below="@+id/champName">
+        android:layout_below="@+id/champName"
+        android:id="@+id/champTier">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/build_database_champ_tier"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/wave_clear_strength"
+            android:id="@+id/editChampTier"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/champTier"
+        android:id="@+id/primaryPosit">
 
         <TextView
             android:layout_width="fill_parent"
@@ -52,6 +81,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -74,6 +105,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -96,6 +129,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -118,6 +153,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -140,6 +177,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -162,6 +201,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

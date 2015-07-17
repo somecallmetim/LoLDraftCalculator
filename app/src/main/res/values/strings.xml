@@ -26,6 +26,7 @@
     <string name="build_database_done_button">Done</string>
     <string name="build_database_primary_dmg_type">Primary Dmg Type</string>
     <string name="build_database_wave_clear_strength">Wave Clear Strength</string>
+    <string name="build_database_champ_tier">Champ Tier</string>
     <string-array name="champion_positions">
         <item></item>
         <item>Top</item>

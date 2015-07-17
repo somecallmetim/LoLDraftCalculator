@@ -1,11 +1,14 @@
 package timbauer.loldraftcalculator;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -15,17 +18,32 @@ public class BuildDatabaseScreen extends ActionBarActivity {
     private int champ = 0;
     private TextView currentChamp;
     private Button nextChamp,  prevChamp, done;
+    private Spinner champTier, primaryPosit, secondaryPosit, secondaryPosit2,
+        primaryRole, secondaryRole, primaryDmgType, waveClearStrength;
+    ChampDatabase champDatabase;
+    SQLiteDatabase champDB;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build__database);
+        champDatabase = ChampDatabase.getChampDatabase(this);
+        champDB = champDatabase.getWritableDatabase();
 
         currentChamp = (TextView) findViewById(R.id.currentChamp);
         nextChamp = (Button) findViewById(R.id.next_champ);
         prevChamp = (Button) findViewById(R.id.previous_champ);
         done = (Button) findViewById(R.id.exit_activity);
+
+        champTier = (Spinner) findViewById(R.id.editChampTier);
+        primaryPosit = (Spinner) findViewById(R.id.editPrimaryPosit);
+        secondaryPosit = (Spinner) findViewById(R.id.editSecondaryPosit);
+        secondaryPosit2 = (Spinner) findViewById(R.id.editSecondaryPosit2);
+        primaryRole = (Spinner) findViewById(R.id.editPrimaryRole);
+        secondaryRole = (Spinner) findViewById(R.id.editSecondaryRole);
+        primaryDmgType = (Spinner) findViewById(R.id.editPrimaryDmgType);
+        waveClearStrength = (Spinner) findViewById(R.id.editWaveClearStrength);
 
         currentChamp.setText(champs[champ]);
     }
@@ -52,7 +70,25 @@ public class BuildDatabaseScreen extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void persistData(){
+        ContentValues champData = new ContentValues();
+
+        champData.put(ChampDatabase.champName, champs[champ]);
+        champData.put(ChampDatabase.champTier, champTier.getSelectedItem().toString());
+        champData.put(ChampDatabase.primaryPosit, primaryPosit.getSelectedItem().toString());
+        champData.put(ChampDatabase.secondaryPosit, secondaryPosit.getSelectedItem().toString());
+        champData.put(ChampDatabase.secondaryPosit2, secondaryPosit2.getSelectedItem().toString());
+        champData.put(ChampDatabase.primaryRole, primaryRole.getSelectedItem().toString());
+        champData.put(ChampDatabase.secondaryRole, secondaryRole.getSelectedItem().toString());
+        champData.put(ChampDatabase.primaryDmgType, primaryDmgType.getSelectedItem().toString());
+        champData.put(ChampDatabase.waveClear, waveClearStrength.getSelectedItem().toString());
+
+        champDB.insert(champDatabase.tableName, null, champData);
+    }
+
     public void getNextChamp(View view) {
+
+        persistData();
 
         champ++;
         currentChamp.setText(champs[champ]);
@@ -81,133 +117,135 @@ public class BuildDatabaseScreen extends ActionBarActivity {
     }
 
     public void exitToHomeScreen(View view) {
+
+        persistData();
         finish();
     }
 
 
     private final static String[] champs = {
-            "aatrox",
-            "akali",
-            "alistar",
-            "amumu",
-            "anivia",
-            "annie",
-            "ashe",
-            "azir",
-            "bard",
-            "blitzcrank",
-            "brand",
-            "braum",
-            "caitlyn",
-            "cassiopeia",
-            "chogath",
-            "corki",
-            "darius",
-            "diana",
-            "draven",
-            "drmundo",
-            "elise",
-            "evelynn",
-            "ezreal",
-            "fiddlesticks",
-            "fiora",
-            "fizz",
-            "galio",
-            "gangplank",
-            "garen",
-            "gragas",
-            "graves",
-            "hecarim",
-            "heimerdinger",
-            "irelia",
-            "janna",
-            "jarvaniv",
-            "jax",
-            "jayce",
-            "jinx",
-            "kalista",
-            "karma",
-            "karthus",
-            "kassadin",
-            "katarina",
-            "kayle",
-            "kennen",
-            "khazix",
-            "kogmaw",
-            "leblanc",
-            "leesin",
-            "leona",
-            "lissandra",
-            "lucian",
-            "lulu",
-            "lux",
-            "malphite",
-            "malzahar",
-            "maokai",
-            "masteryi",
-            "missfortune",
-            "monkeyking",
-            "mordekaiser",
-            "morgana",
-            "nami",
-            "nasus",
-            "nautilus",
-            "nidalee",
-            "nocturne",
-            "nunu",
-            "olaf",
-            "orianna",
-            "pantheon",
-            "poppy",
-            "quinn",
-            "rammus",
-            "reksai",
-            "renekton",
-            "rengar",
-            "riven",
-            "rumble",
-            "ryze",
-            "sejuani",
-            "shaco",
-            "shen",
-            "shyvana",
-            "singed",
-            "sion",
-            "sivir",
-            "skarner",
-            "sona",
-            "soraka",
-            "swain",
-            "syndra",
-            "talon",
-            "taric",
-            "teemo",
-            "thresh",
-            "tristana",
-            "trundle",
-            "tryndamere",
-            "twistedfate",
-            "twitch",
-            "udyr",
-            "urgot",
-            "varus",
-            "vayne",
-            "veigar",
-            "velkoz",
-            "vi",
-            "viktor",
-            "vladimir",
-            "volibear",
-            "warwick",
-            "xerath",
-            "xinzhao",
-            "yasuo",
-            "yorick",
-            "zac",
-            "zed",
-            "ziggs",
-            "zilean",
-            "zyra"
+            "Aatrox",
+            "Akali",
+            "Alistar",
+            "Amumu",
+            "Anivia",
+            "Annie",
+            "Ashe",
+            "Azir",
+            "Bard",
+            "Blitzcrank",
+            "Brand",
+            "Braum",
+            "Caitlyn",
+            "Cassiopeia",
+            "Chogath",
+            "Corki",
+            "Darius",
+            "Diana",
+            "Draven",
+            "Drmundo",
+            "Elise",
+            "Evelynn",
+            "Ezreal",
+            "Fiddlesticks",
+            "Fiora",
+            "Fizz",
+            "Galio",
+            "Gangplank",
+            "Garen",
+            "Gragas",
+            "Graves",
+            "Hecarim",
+            "Heimerdinger",
+            "Irelia",
+            "Janna",
+            "Jarvaniv",
+            "Jax",
+            "Jayce",
+            "Jinx",
+            "Kalista",
+            "Karma",
+            "Karthus",
+            "Kassadin",
+            "Katarina",
+            "Kayle",
+            "Kennen",
+            "Khazix",
+            "Kogmaw",
+            "Leblanc",
+            "Leesin",
+            "Leona",
+            "Lissandra",
+            "Lucian",
+            "Lulu",
+            "Lux",
+            "Malphite",
+            "Malzahar",
+            "Maokai",
+            "Masteryi",
+            "Missfortune",
+            "Monkeyking",
+            "Mordekaiser",
+            "Morgana",
+            "Nami",
+            "Nasus",
+            "Nautilus",
+            "Nidalee",
+            "Nocturne",
+            "Nunu",
+            "Olaf",
+            "Orianna",
+            "Pantheon",
+            "Poppy",
+            "Quinn",
+            "Rammus",
+            "Reksai",
+            "Renekton",
+            "Rengar",
+            "Riven",
+            "Rumble",
+            "Ryze",
+            "Sejuani",
+            "Shaco",
+            "Shen",
+            "Shyvana",
+            "Singed",
+            "Sion",
+            "Sivir",
+            "Skarner",
+            "Sona",
+            "Soraka",
+            "Swain",
+            "Syndra",
+            "Talon",
+            "Taric",
+            "Teemo",
+            "Thresh",
+            "Tristana",
+            "Trundle",
+            "Tryndamere",
+            "Twistedfate",
+            "Twitch",
+            "Udyr",
+            "Urgot",
+            "Varus",
+            "Vayne",
+            "Veigar",
+            "Velkoz",
+            "Vi",
+            "Viktor",
+            "Vladimir",
+            "Volibear",
+            "Warwick",
+            "Xerath",
+            "Xinzhao",
+            "Yasuo",
+            "Yorick",
+            "Zac",
+            "Zed",
+            "Ziggs",
+            "Zilean",
+            "Zyra"
     };
 
 
