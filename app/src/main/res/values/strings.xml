@@ -25,6 +25,7 @@
     <string name="build_database_previous_champ_button">Prev</string>
     <string name="build_database_done_button">Done</string>
     <string name="build_database_primary_dmg_type">Primary Dmg Type</string>
+    <string name="build_database_wave_clear_strength">Wave Clear Strength</string>
     <string-array name="champion_positions">
         <item></item>
         <item>Top</item>
@@ -47,6 +48,13 @@
         <item>AP</item>
         <item>AD</item>
         <item>Both</item>
+    </string-array>
+    <string-array name="wave_clear_strength">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
     
     
