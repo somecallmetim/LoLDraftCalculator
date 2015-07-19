@@ -15,18 +15,18 @@ import java.util.HashMap;
 /**
  * Created by timbauer on 6/24/15.
  */
-public class ImageAdapter extends BaseAdapter {
+public class DisplayResultsAdapter extends BaseAdapter {
     private Context mContext;
 
     //the below allow me to dynamically build a custom array at runtime (there's probably a cleaner way to do this)
-    private ArrayList<Integer> champList= new ArrayList<>(125);
+    private ArrayList<Integer> champList= new ArrayList<>(150);
     private Integer[] mThumbIds;
     private ChampDatabase champDatabase;
     private SQLiteDatabase champDB;
     private static HashMap champDict;
     private static int champColumn;
 
-    public ImageAdapter(Context c, int laneId) {
+    public DisplayResultsAdapter(Context c, int laneId) {
         mContext = c;
 
         champDatabase = ChampDatabase.getChampDatabase(mContext);
@@ -86,7 +86,8 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     private Cursor laneQuery(String lane){
-        Cursor champName = champDB.query(ChampDatabase.tableName,
+        Cursor champName = champDB.query(
+                ChampDatabase.tableName,
                 new String[] {ChampDatabase.champName, ChampDatabase.primaryPosit},
                 ChampDatabase.primaryPosit + " = ?",
                 new String[] {lane},

@@ -8,6 +8,7 @@
     <string name="top_button_text">Top</string>
     <string name="mid_button_text">Mid</string>
     <string name="adc_button_text">adc</string>
+    <string name="main_activity_edit_champs_button">Edit Champs</string>
 
     <string name="title_activity_display_screen">DisplayScreen</string>
     
@@ -27,29 +28,52 @@
     <string name="build_database_primary_dmg_type">Primary Dmg Type</string>
     <string name="build_database_wave_clear_strength">Wave Clear Strength</string>
     <string name="build_database_champ_tier">Champ Tier</string>
+
+    <string name="champ_posit_top">Top</string>
+    <string name="champ_posit_mid">Mid</string>
+    <string name="champ_posit_jungle">Jungle</string>
+    <string name="champ_posit_adc">Ad Carry</string>
+    <string name="champ_posit_support">Support</string>
+
+    <string name="champ_role_assassin">Assassin</string>
+    <string name="champ_role_fighter">Fighter</string>
+    <string name="champ_role_mage">Mage</string>
+    <string name="champ_role_support">Support</string>
+    <string name="champ_role_tank">Tank</string>
+    <string name="champ_role_marksman">Marksman</string>
+
+    <string name="wave_clear_nonexistent">non-existent</string>
+    <string name="wave_clear_poor">poor</string>
+    <string name="wave_clear_average">average</string>
+    <string name="wave_clear_good">good</string>
+    <string name="wave_clear_excellent">excellent</string>
+
     <string-array name="champion_positions">
         <item></item>
-        <item>Top</item>
-        <item>Mid</item>
-        <item>Jungle</item>
-        <item>Ad Carry</item>
-        <item>Support</item>
+        <item>@string/champ_posit_top</item>
+        <item>@string/champ_posit_mid</item>
+        <item>@string/champ_posit_jungle</item>
+        <item>@string/champ_posit_adc</item>
+        <item>@string/champ_posit_support</item>
     </string-array>
+
     <string-array name="champion_roles">
         <item></item>
-        <item>Assassin</item>
-        <item>Fighter</item>
-        <item>Mage</item>
-        <item>Support</item>
-        <item>Tank</item>
-        <item>Marksman</item>
+        <item>@string/champ_role_assassin</item>
+        <item>@string/champ_role_fighter</item>
+        <item>@string/champ_role_mage</item>
+        <item>@string/champ_role_support</item>
+        <item>@string/champ_role_tank</item>
+        <item>@string/champ_role_marksman</item>
     </string-array>
+
     <string-array name="champion_dmg_type">
         <item></item>
         <item>AP</item>
         <item>AD</item>
         <item>Both</item>
     </string-array>
+
     <string-array name="champ_tier">
         <item>1</item>
         <item>2</item>
@@ -57,13 +81,18 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
     <string-array name="wave_clear_strength">
-        <item>non-existant</item>
-        <item>poor</item>
-        <item>average</item>
-        <item>good</item>
-        <item>amazing!</item>
+        <item>@string/wave_clear_nonexistent</item>
+        <item>@string/wave_clear_poor</item>
+        <item>@string/wave_clear_average</item>
+        <item>@string/wave_clear_good</item>
+        <item>@string/wave_clear_excellent</item>
     </string-array>
-    
-    
+    <string name="title_activity_edit_champs">EditChamps</string>
+    <string name="title_activity_edit_spec_champ">EditSpecChamp</string>
+    <string name="edit_spec_champ_discard_changes">Discard</string>
+    <string name="edit_spec_champ_save_changes">Save</string>
+
+
 </resources>

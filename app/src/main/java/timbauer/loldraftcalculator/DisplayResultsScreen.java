@@ -11,7 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 
-public class DisplayScreen extends ActionBarActivity {
+public class DisplayResultsScreen extends ActionBarActivity {
 
 
     @Override
@@ -23,12 +23,12 @@ public class DisplayScreen extends ActionBarActivity {
         int laneId = getLaneId.getExtras().getInt("laneId");
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this, laneId));
+        gridview.setAdapter(new DisplayResultsAdapter(this, laneId));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(DisplayScreen.this, "" + position,
+                Toast.makeText(DisplayResultsScreen.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });

@@ -17,12 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DisplayScreen"
+            android:name=".DisplayResultsScreen"
             android:label="@string/title_activity_display_screen" >
         </activity>
         <activity
-            android:name=".BuildDatabaseScreen"
-            android:label="@string/title_activity_build__database" >
+            android:name=".EditChamps"
+            android:label="@string/title_activity_edit_champs" >
+        </activity>
+        <activity
+            android:name=".EditSpecChamp"
+            android:label="@string/title_activity_edit_spec_champ" >
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="timbauer.loldraftcalculator.BuildDatabaseScreen">
+    tools:context="timbauer.loldraftcalculator.EditSpecChamp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:paddingTop="10dp"
@@ -28,7 +29,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/currentChamp"/>
+            android:id="@+id/currentChampName"/>
     </LinearLayout>
 
     <LinearLayout
@@ -37,7 +38,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/champName"
         android:id="@+id/champTier">
 
         <TextView
@@ -206,7 +206,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/primary_dmg_type"
         android:id="@+id/wave_clear">
 
         <TextView
@@ -224,33 +223,28 @@
             android:id="@+id/editWaveClearStrength"/>
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/build_database_next_champ_button"
-        android:id="@+id/next_champ"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:clickable="true"
-        android:onClick="getNextChamp"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_spec_champ_save_changes"
+            android:id="@+id/save_champ"
+            android:clickable="true"
+            android:onClick="saveChamp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/build_database_previous_champ_button"
-        android:id="@+id/previous_champ"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:clickable="false"
-        android:onClick="getPreviousChamp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/build_database_done_button"
-        android:id="@+id/exit_activity"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="exitToHomeScreen"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_spec_champ_discard_changes"
+            android:id="@+id/discard_changes"
+            android:onClick="discardChanges"/>
 
-</RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
+
