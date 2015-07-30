@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends ActionBarActivity {
+public class ListChampsByPositAndEdit extends ActionBarActivity {
 
     private ChampDatabase champDatabase;
     private SQLiteDatabase champDB;
@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_champ_by_posit_and_edit);
 
 
         champDatabase = ChampDatabase.getChampDatabase(this);

@@ -93,6 +93,7 @@
     <string name="title_activity_edit_spec_champ">EditSpecChamp</string>
     <string name="edit_spec_champ_discard_changes">Discard</string>
     <string name="edit_spec_champ_save_changes">Save</string>
+    <string name="title_activity_draft_screen">DraftScreen</string>
 
 
 </resources>

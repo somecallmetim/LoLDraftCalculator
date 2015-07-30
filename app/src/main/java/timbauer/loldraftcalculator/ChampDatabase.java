@@ -14,8 +14,6 @@ public class ChampDatabase extends SQLiteOpenHelper {
     final static int dbVersion = 1;
     static Context mContext;
 
-    private SQLiteDatabase champDB;
-
     private static ChampDatabase champDatabase = null;
 
     final static String champName = "champName";
@@ -66,28 +64,6 @@ public class ChampDatabase extends SQLiteOpenHelper {
         super(context, dbName, null, dbVersion);
     }
 
-    /*
-    private void populateDatabase(){
-        ContentValues champData = new ContentValues();
-        for(int i = 0; i < champs.length; i++){
-
-
-            champData.put(champName, champs[i]);
-            champData.put(champTier, "5");
-            champData.put(primaryPosit, "");
-            champData.put(secondaryPosit, "");
-            champData.put(secondaryPosit2,"");
-            champData.put(primaryRole, "");
-            champData.put(secondaryRole, "");
-            champData.put(primaryDmgType, "");
-            //champData.put(waveClear, mContext.getString(R.string.wave_clear_nonexistent));
-
-            champDB.insert(ChampDatabase.tableName, null, champData);
-
-            champData.clear();
-        }
-    }
-    */
     private final static String[] champs = {
             "Aatrox",
             "Akali",

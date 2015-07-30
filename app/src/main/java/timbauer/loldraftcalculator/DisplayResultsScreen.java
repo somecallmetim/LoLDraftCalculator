@@ -17,7 +17,7 @@ public class DisplayResultsScreen extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_screen);
+        setContentView(R.layout.activity_display_results_screen);
 
         Intent getLaneId = getIntent();
         int laneId = getLaneId.getExtras().getInt("laneId");
